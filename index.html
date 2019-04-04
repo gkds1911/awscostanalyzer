@@ -1,0 +1,365 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Cost Advisor by Ozitem</title>
+	<link rel="shortcut icon" href="static/img/favicon.png" type="image/vnd.microsoft.icon" />
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/ozitheme.css">
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+                <div class="ozi_left"></div>
+                <div class="ozi_right">
+                <div class="ozi_rightmid">
+                    <h4>Optimisation des co&ucirc;ts sur votre facture AWS</h4>
+                </div>           
+                <div class="ozi_rightbot">
+                    <img height="50" width="132" data-src="static/img/logo-AWS-blanc.png">                    
+                    <img height="50" width="243" data-src="static/img/logo-ozitem-blanc.png">
+                </div>  
+                </div>                  
+			</section>
+			<section>
+                <div class="ozi_slidetitle"><h2>Fonctionnement</h2></div>
+                <div class="ozi_slidecontent">
+				<ol>
+					<li>Connexion &agrave; AWS</li>
+					<li>Cartographie de l'environnement</li>
+					<li>Evaluation</li>
+                </ol>
+                </div>
+                <div class="ozi_slidebottom">                
+			</section>
+			<section>			
+                <div class="ozi_slidetitle"><h2>Connexion &agrave; AWS</h2></div>                
+                <div class="ozi_slidecontent">
+                <ol>	
+                    <li>Acc&egrave;s en lecture seule sur l'API</li>
+                    <li>Pas d'acc&egrave;s aux serveurs ou aux donn&eacute;es</li>
+                </ol>
+                </div>
+                <div class="ozi_slidebottom">       
+			</section>
+			<section>
+				<div class="ozi_slidetitle"><h2>Cartographie de l'environnement</h2></div>
+                <div class="ozi_slidecontent">
+				<ol>
+					<li>Serveurs</li>
+					<li>Stockage</li>
+					<li>R&eacute;seau</li>
+                </ol>
+                </div>
+                <div class="ozi_slidebottom">    
+			</section>
+            <section>
+                <aside class='notes'>
+                    Commentaires sur les instances EC2 : Nombre total (compte), puis stopped (compte), underused (compte) et out of date (compte) (generation precedente).
+                </aside>
+                <div class='ozi_slidetitle'><h2>Services surveill&eacute;s</h2></div>
+                <div class='ozi_slidecontent'>
+                    <ul>
+                        <li class='contenttitle'>EC2</li>
+                        <ul>
+                            
+                            <li class='fragment'>Instances au total: <span class='fragment'>0</li></span>                        
+                            <li class='fragment'>Instances arr&ecirc;t&eacute;es: <span class='fragment'>0</li></span>
+                            <li class='fragment'>Instances sous-utilis&eacute;es: <span class='fragment'>0</li></span>
+                            <li class='fragment'>Instances d&eacute;pass&eacute;es: <span class='fragment'>0</li></span>
+                            <li class='fragment'>Instances r&eacute;serv&eacute;es: <span class='fragment'>0</li></span>
+                        </ul>
+                    </ul>
+                </div>
+                <div class='ozi_slidebottom'>
+            </section>
+            <section>
+                <aside class='notes'>
+                    Compteurs sur les snapshots (compte, taille), volumes non attaches (compte, taille), attaches 'off' (compte, taille), et EIP non assignees (compte).
+                </aside>  
+                <div class='ozi_slidetitle'><h2>Services surveill&eacute;s</h2></div>         
+                <div class='ozi_slidecontent'>
+                    <ul>
+                        <li class='contenttitle'>EC2</li>   
+                        <ul>
+                            
+                            <li class='fragment'>Anciens snapshots: <span class='fragment'>0 (GB)</li></span>
+                            <li class='fragment'>Volumes non-attach&eacute;s: <span class='fragment'>1 (8GB)</li></span>
+                            <li class='fragment'>Volumes 'offline': <span class='fragment'>0 (0GB)</li></span>
+                            <li class='fragment'>Elastic IPs non attribu&eacute;es: <span class='fragment'>0</li></span>
+                        </ul>
+                    </ul>
+                </div>
+                <div class='ozi_slidebottom'>
+            </section>
+            <section>
+                <div class='ozi_slidetitle'><h2>Services surveill&eacute;s</h2></div>
+                <div class='ozi_slidecontent'>
+                    <ul>
+                        <li class='contenttitle'>RDS</li>
+                        <ul>
+                            
+
+                            <li class='fragment'>Instances RDS DB arr&ecirc;t&eacute;es: <span class='fragment'>0</li></span>
+                            <li class='fragment'>Instances RDS DB sous-utilis&eacute;es: <span class='fragment'>0</li></span>
+                            <li class='fragment'>Instances RDS DB d&eacute;pass&eacute;es: <span class='fragment'>0</li></span>
+                            <li class='fragment'>Instances RDS DB r&eacute;serv&eacute;es: <span class='fragment'>0</li></span>
+                        </ul>
+                    </ul>
+                </div>
+                <div class='ozi_slidebottom'>
+            </section>
+            <section>
+                <div class='ozi_slidetitle'><h2>Services surveill&eacute;s</h2></div>
+                <div class='ozi_slidecontent'>
+                    <ul>
+                        <li class='fragment contenttitle'>VPC</li>
+                        <ul>
+                            <li class='fragment'>Pas de connexions VPN configur&eacute;es</li>
+                        </ul>
+                        <li class='fragment contenttitle'>S3</li>
+                        <ul>
+                            <li class='fragment'>Buckets S3: <span class='fragment'>4 buckets <span class='fragment'>et 0GB occup&eacute;s</li></span></span>
+                        </ul>
+                    </ul>
+                </div>
+                <div class='ozi_slidebottom'>
+            </section>
+            <section>
+                <div class='ozi_slidetitle'><h2>Co&ucirc;ts actuels</h2></div>
+                <div class='ozi_tableplacement'>
+                
+                <table>
+                <tbody>
+                <tr>
+                    <th>Ressource</th>
+                    <th>Compte</th>
+                    <th align='right'>Co&ucirc;t</th>
+                </tr>
+                <tr>
+                    <td style='padding-top: 15px;'>Instances EC2</td>
+                    <td>0</td>
+                    <td align='right'>0</td>
+                </tr>
+                <tr>
+                    <td>Snapshots EC2</td>
+                    <td>0</td>
+                    <td align='right'>0</td>
+                </tr>
+                <tr>
+                    <td>Volumes EBS</td>
+                    <td>1</td>
+                    <td align='right'>0</td>
+                </tr>
+                <tr>
+                    <td>EIP non associ&eacute;es</td>
+                    <td>0</td>
+                    <td align='right'>0</td>
+                </tr>
+                <tr>
+                    <td>VPN</td>
+                    <td>0</td>
+                    <td align='right'>0</td>
+                </tr>
+                <tr>
+                    <td>Buckets S3</td>
+                    <td>4</td>
+                    <td align='right'>0.00</td>
+                </tr>
+                </tr>
+                <tr>
+                    <td style='padding-bottom: 15px;'>Instances RDS</td>
+                    <td>0</td>
+                    <td align='right'>0</td>
+                </tr>
+                </tr>
+                <tr class='ozi_lasttablerow'>
+                    <td>Total </td>
+                    <td>&nbsp;</td>
+                    <td align='right'>0.00$</td>
+                </tr>
+                </tbody>
+                </table>
+                </div>
+                <div class='ozi_slidebottom'>
+            </section>
+            <section>
+                <div class='ozi_slidetitle'><h2>Economies possibles</h2></div>
+                <div class='ozi_tableplacement'>
+                
+                <table style='font-size: large;'>
+                <tbody>
+                <tr>
+                    <th>Ressource</th>
+                    <th>Compte</th>
+                    <th align='right'>Economie</th>
+                </tr>
+                <tr>
+                    <td style='padding-top: 15px;'>Instances arr&ecirc;t&eacute;es</td>
+                    <td>0</td>
+                    <td align='right'>0</td>
+                </tr>
+                <tr>
+                    <td>Redim. instances sous-utilis&eacute;es</td>
+                    <td>0</td>
+                    <td align='right'>0</td>
+                </tr>
+                <tr>
+                    <td>Instances d&eacute;pass&eacute;es</td>
+                    <td>0</td>
+                    <td align='right'>0</td>
+                </tr>
+                <tr>
+                    <td>Snapshots d&eacute;pass&eacute;s</td>
+                    <td>0</td>
+                    <td align='right'>0</td>
+                </tr>
+                <tr>
+                    <td>Volumes non attach&eacute;s</td>
+                    <td>1</td>
+                    <td align='right'>0</td>
+                </tr>
+                <tr>
+                    <td>Volumes 'off'</td>
+                    <td>0</td>
+                    <td align='right'>0</td>
+                </tr>
+                <tr>
+                    <td>EIP non associ&eacute;es</td>
+                    <td>0</td>
+                    <td align='right'>0</td>
+                </tr>
+                <tr>
+                    <td>VPN arr&ecirc;t&eacute;s</td>
+                    <td>0</td>
+                    <td align='right'>0</td>
+                </tr>
+                <tr>
+                    <td>Instances RDS arr&ecirc;t&eacute;es</td>
+                    <td>0</td>
+                    <td align='right'>0</td>
+                </tr>
+                <tr>
+                    <td>Instances RDS sous-utilis&eacute;es</td>
+                    <td>0</td>
+                    <td align='right'>0</td>
+                </tr>
+                <tr>
+                    <td style='padding-bottom: 15px;'>Instances RDS d&eacute;pass&eacute;es</td>
+                    <td>0</td>
+                    <td align='right'>0</td>
+                </tr>
+                <tr class='ozi_lasttablerow'>
+                    <td>Total </td>
+                    <td>&nbsp;</td>
+                    <td align='right'>0$</td>
+                </tr>
+                </tbody>
+                </table>
+                </div>
+                <div class='ozi_slidebottom'>
+            </section> 
+            <section>
+                <div class='ozi_slidetitle'><h2>Economies possibles (%)</h2></div>
+                <div class='ozi_tableplacement'>
+                <table>
+                <tbody>
+                <tr>
+                    <th>Ressource</th>
+                    <th>Co&ucirc;t actuel</th>
+                    <th align='right'>Economie</th>
+                </tr>
+                <tr>
+                    <td style='padding-top: 15px;'>Instances EC2</td>
+                    <td>0</td>
+                    <td align='right'>N/A</td>
+                </tr>
+                <tr>
+                    <td>Snapshots EC2</td>
+                    <td>0</td>
+                    <td align='right'>%</td>
+                </tr>
+                <tr>
+                    <td>Volumes EBS</td>
+                    <td>0</td>
+                    <td align='right'>N/A</td>
+                </tr>
+                <tr>
+                    <td>EIP 'off'</td>
+                    <td>0</td>
+                    <td align='right'>N/A</td>
+                </tr>
+                <tr>
+                    <td>VPN</td>
+                    <td>0</td>
+                    <td align='right'>N/A</td>
+                </tr>
+                <tr>
+                    <td>Buckets S3</td>
+                    <td>0.00</td>
+                    <td align='right'>N/A</td>
+                </tr>
+                <tr>
+                    <td style='padding-bottom: 15px;'>Instances RDS</td>
+                    <td>0</td>
+                    <td align='right'>N/A</td>
+                </tr> 
+                <tr class='ozi_lasttablerow'>
+                    <td>Total </td>
+                    <td>0.00$</td>
+                    <td align='right'>%</td>
+                </tr> 
+                </tbody>
+                </table>
+                </div>
+                <div class='ozi_slidebottom'>
+            </section> 
+            <section> 
+                <div class='ozi_finalslide'>
+                    <div class='ozi_finalplacement'>
+                        <span>
+                            Nous sommes ravis de vous avoir fait &eacute;conomiser la somme de 
+                        </span>
+                    </div>
+                    <div class='ozi_finalsavings'>0$</div>
+                    <div class='ozi_finallogo'>
+                        <img height='125' width='125' data-src='static/img/Logo-carre-Groupe-blanc.png'> 
+                    </div>
+                </div>
+            </section>
+		</div>
+	</div>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			transition: 'none',
+			theme: 'serif',
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+</html>
